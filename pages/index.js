@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Header from "../components/Header";
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
+import Image from "next/Image";
 
 export default function Home() {
   return (
@@ -20,6 +21,9 @@ export default function Home() {
                     <Button color="gray" buttonType="outline" iconOnly={true} ripple="dark" className="border-0">
                         <Icon name="more_vert" size="3xl" />
                     </Button>
+                </div>
+                <div>
+                    <Image src="https://links.papareact.com/pju" layout="fill" />
                 </div>
             </div>
         </section>
