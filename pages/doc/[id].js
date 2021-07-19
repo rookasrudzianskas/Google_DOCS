@@ -11,10 +11,13 @@ const Doc = () => {
 
     const [session] = useSession();
     if(!session) return <Login />;
-    const [snapshot, loadingSnapshot] = useDocumentOnce(db.collection('userDocs').doc(session.user.email).collection('docs').doc(id));
+
     const router = useRouter();
     const {id} = router.query;
+    const [snapshot, loadingSnapshot] = useDocumentOnce(db.collection('userDocs').doc(session.user.email).collection('docs').doc(id));
 
+
+    console.log(snapshot);
 
 
 
@@ -25,7 +28,7 @@ const Doc = () => {
                     <Icon name="description" size="5xl" color="blue" />
                 </span>
 
-                <div>
+                <div className="flex-grow px-2">
                     <h2>{snapshot?.data()?.fileName}</h2>
                 </div>
             </header>
