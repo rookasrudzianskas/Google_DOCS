@@ -13,7 +13,10 @@ const Login = () => {
                 <link rel="icon" href="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Docs.max-1100x1100.png" />
             </Head>
 
-            <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Docs.max-1100x1100.png" height="300" width="500" alt=""/>
+            <div className="flex flex-col items-center justify-center min-h-screen py-2">
+                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Docs.max-1100x1100.png" height="300" width="500" alt=""/>
+                <h2>Hello</h2>
+            </div>
         </div>
     );
 };
