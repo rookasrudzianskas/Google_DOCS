@@ -8,14 +8,29 @@ import Login from "../components/Login";
 import Modal from "@material-tailwind/react/Modal";
 import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
+import {useState} from "react";
 
 
 export default function Home() {
 
     const [session] = useSession();
-
+    const [showModal, setShowModal] = useState(false);
+    const [input, setInput] = useState('');
 
     if(!session) return <Login />
+
+    const modal = (
+        <Modal size="sm" activ={showModal} toggler={() => setShowModal(false)}>
+            <ModalBody>
+                <input value={input} onChange={(e) => setInput(e.target.value)} type="text" className="outline-none, w-full" placeholder="Enter name of document..." onKeyDown={(e) => e.key === "Enter" && createDocument(e)} />
+            </ModalBody>
+            <ModalFooter >
+                <Button color="blue" buttonType="link" onClick={(e) => setShowModal(false)} ripple="dark">Cancel</Button>
+                <Button color="blue" onClick={createDocument} ripple="light">Create</Button>
+            </ModalFooter>
+        </Modal>
+    )
+
 
   return (
     <div className="">
