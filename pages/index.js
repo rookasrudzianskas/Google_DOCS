@@ -11,6 +11,35 @@ export default function Home() {
 
         <Header />
 
+        <section className="bg-[#F8F9FA] pb-10 px-10">
+            <div className="max-w-3xl mx-auto">
+                <div className="py-6">
+                    <h2>Start a new document</h2>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <footer className="flex items-center justify-center w-full h-24 border-t">
         <a
           className="flex items-center justify-center"
