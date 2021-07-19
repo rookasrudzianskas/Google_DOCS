@@ -17,8 +17,9 @@ const Doc = () => {
     const [snapshot, loadingSnapshot] = useDocumentOnce(db.collection('userDocs').doc(session.user.email).collection('docs').doc(id));
 
 
-    console.log(snapshot);
-
+    if(!loadingSnapshot && !snapshot?.data()?.fileName) {
+        router.replace('/');
+    }
 
 
     return (
