@@ -10,10 +10,13 @@ import Icon from "@material-tailwind/react/Icon";
 const Doc = () => {
 
     const [session] = useSession();
+    if(!session) return <Login />;
     const [snapshot, loadingSnapshot] = useDocumentOnce(db.collection('userDocs').doc(session.user.email).collection('docs').doc(id));
     const router = useRouter();
+    const {id} = router.query;
 
-    if(!session) return <Login />;
+
+
 
     return (
         <div>
@@ -21,6 +24,10 @@ const Doc = () => {
                 <span onClick={() => router.push('/')} className="cursor-pointer">
                     <Icon name="description" size="5xl" color="blue" />
                 </span>
+
+                <div>
+                    <h2>{snapshot?.data()?.fileName}</h2>
+                </div>
             </header>
         </div>
     );
