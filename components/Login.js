@@ -8,9 +8,6 @@ import Button from "@material-tailwind/react/Button";
 
 const Login = () => {
 
-    const signIn = () => {
-
-    }
     return (
         <div className="">
             <Head>
