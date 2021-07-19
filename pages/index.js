@@ -23,8 +23,8 @@ export default function Home() {
                     </Button>
                 </div>
                 <div>
-                    <div className="relative">
-                        <img src="https://ssl.gstatic.com/docs/templates/thumbnails/docs-blank-googlecolors.png" layout="fill" />
+                    <div className="relative h-52 w-40">
+                        <img loading="lazy" src="https://ssl.gstatic.com/docs/templates/thumbnails/docs-blank-googlecolors.png" layout="fill" />
                     </div>
                 </div>
             </div>
