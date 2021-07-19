@@ -19,6 +19,8 @@ const Header = () => {
             <Icon name="apps" size="3xl" color="gray" />
             </Button>
 
+            <img loading="lazy" className="cursor-pointer h-12 w-12 rounded-full ml-2" src="https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg" alt=""/>
+
         </div>
     );
 };
