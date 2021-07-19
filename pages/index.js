@@ -23,7 +23,9 @@ export default function Home() {
                     </Button>
                 </div>
                 <div>
-                    <Image src="https://links.papareact.com/pju" layout="fill" />
+                    <div className="relative">
+                        <img src="https://ssl.gstatic.com/docs/templates/thumbnails/docs-blank-googlecolors.png" layout="fill" />
+                    </div>
                 </div>
             </div>
         </section>
