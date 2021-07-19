@@ -12,11 +12,12 @@ import {useState} from "react";
 import db from "../firebase";
 import Firebase from "firebase";
 import firebase from "firebase";
-
+import {useCollectionOnce} from "react-firebase-hooks/firestore";
 
 export default function Home() {
 
     const [session] = useSession();
+    const [snapshot] = useCollectionOnce(db.collection('userDocs').doc(session.user.email).collection('docs').orderBy('timestamp', 'desc'));
     const [showModal, setShowModal] = useState(false);
     const [input, setInput] = useState('');
 
