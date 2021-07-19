@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import dynamic from "next/dynamic";
+import {EditorState} from "draft-js";
 
 // importing editor in here
 const Editor = dynamic(() => import('react-draft-wysiwyg').then((module) => module.Editor), {
@@ -11,7 +12,7 @@ const Editor = dynamic(() => import('react-draft-wysiwyg').then((module) => modu
 
 const TextEditor = () => {
 
-    const [editorState, setEditorState] = useState(Editor.createEmpty());
+    const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
     return (
         <div className="bg-[#f8f9FA] min-h-screen pb-16">
