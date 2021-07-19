@@ -10,12 +10,17 @@ import Icon from "@material-tailwind/react/Icon";
 const Doc = () => {
 
     const [session] = useSession();
+    const router = useRouter();
 
     if(!session) return <Login />;
 
     return (
         <div>
-            <h1>Text Editor</h1>
+            <header className="flex justify-between items-center p-3 pb-1">
+                <span onClick={() => router.push('/')} className="cursor-pointer">
+                    <Icon name="description" size="5xl" color="blue" />
+                </span>
+            </header>
         </div>
     );
 };
