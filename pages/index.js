@@ -9,6 +9,8 @@ import Modal from "@material-tailwind/react/Modal";
 import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
 import {useState} from "react";
+import db from "../firebase";
+import Firebase from "firebase";
 
 
 export default function Home() {
@@ -19,10 +21,19 @@ export default function Home() {
 
     if(!session) return <Login />
 
+    const createDocument = () => {
+        if(!input) return;
+
+        db.collection('userDocs').doc(session.user.email).collection('docs').add({
+            fileName: input,
+            timestamp: Firebase.firestore.database.timestamp(),
+        })
+    }
+
     const modal = (
-        <Modal size="sm" activ={showModal} toggler={() => setShowModal(false)}>
+        <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
             <ModalBody>
-                <input value={input} onChange={(e) => setInput(e.target.value)} type="text" className="outline-none, w-full" placeholder="Enter name of document..." onKeyDown={(e) => e.key === "Enter" && createDocument(e)} />
+                <input value={input} onChange={(e) => setInput(e.target.value)} type="text" className="outline-none w-full" placeholder="Enter name of document..." onKeyDown={(e) => e.key === "Enter" && createDocument(e)} />
             </ModalBody>
             <ModalFooter >
                 <Button color="blue" buttonType="link" onClick={(e) => setShowModal(false)} ripple="dark">Cancel</Button>
@@ -40,6 +51,7 @@ export default function Home() {
       </Head>
 
         <Header />
+        {modal}
 
         <section className="bg-[#F8F9FA] pb-10 px-10">
             <div className="max-w-3xl mx-auto">
@@ -50,7 +62,7 @@ export default function Home() {
                     </Button>
                 </div>
                 <div>
-                    <div className="relative h-52 w-40 border-2 cursor-pointer hover:border-blue-700">
+                    <div onClick={() => setShowModal(true)} className="relative h-52 w-40 border-2 cursor-pointer hover:border-blue-700">
                         <img loading="lazy" src="https://ssl.gstatic.com/docs/templates/thumbnails/docs-blank-googlecolors.png" />
                     </div>
                     <p className="ml-2 mt-2 font-semibold text-sm text-gray-700">Blank</p>
