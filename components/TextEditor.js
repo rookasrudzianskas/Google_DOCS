@@ -10,9 +10,8 @@ const Editor = dynamic(() => import('react-draft-wysiwyg').then((module) => modu
 
 const TextEditor = () => {
     return (
-        <div>
-
-            <h1>Text Editor</h1>
+        <div className="bg-[#f8f9FA] min-h-screen pb-16">
+            <Editor toolbarClassName="flex sticky top-0 z-50" />
         </div>
     );
 };
