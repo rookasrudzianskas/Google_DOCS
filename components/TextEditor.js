@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import dynamic from "next/dynamic";
 import {EditorState} from "draft-js";
+import db from "../firebase";
+import {session} from "next-auth/client";
+import {useRouter} from "next/dist/client/router";
 
 // importing editor in here
 const Editor = dynamic(() => import('react-draft-wysiwyg').then((module) => module.Editor), {
@@ -13,9 +16,13 @@ const Editor = dynamic(() => import('react-draft-wysiwyg').then((module) => modu
 const TextEditor = () => {
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const router = useRouter();
+    const {id} = router.query;
 
     const onEditorStateChange = (editorState) => {
       setEditorState(editorState);
+
+      db.collection('userDocs').doc(session.user.email).collection('docs').doc(id);
     };
 
     // console.log(editorState);
