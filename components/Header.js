@@ -13,7 +13,7 @@ const Header = () => {
 
             <div className="flex flex-grow items-center p-5 py-2 bg-gray-100 text-gray-600 rounded-md">
                 <Icon name="search" size="3xl" color="gray" />
-                <input type="text" placeholder="Search" />
+                <input type="text" placeholder="Search" className="flex-grow px-5 text-base bg-transparent outline-none" />
             </div>
         </div>
     );
