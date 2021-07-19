@@ -3,8 +3,9 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import dynamic from "next/dynamic";
 import {EditorState} from "draft-js";
 import db from "../firebase";
-import {session} from "next-auth/client";
+import {session, useSession} from "next-auth/client";
 import {useRouter} from "next/dist/client/router";
+import {convertFromRaw, convertToRaw} from "draft-js";
 
 // importing editor in here
 const Editor = dynamic(() => import('react-draft-wysiwyg').then((module) => module.Editor), {
@@ -16,13 +17,16 @@ const Editor = dynamic(() => import('react-draft-wysiwyg').then((module) => modu
 const TextEditor = () => {
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const [session] = useSession();
     const router = useRouter();
     const {id} = router.query;
 
     const onEditorStateChange = (editorState) => {
       setEditorState(editorState);
 
-      db.collection('userDocs').doc(session.user.email).collection('docs').doc(id);
+      db.collection('userDocs').doc(session.user.email).collection('docs').doc(id).set({
+          editorState: convertToRaw(editorState.getCurrentContent()),
+      }, {merge: true});
     };
 
     // console.log(editorState);
