@@ -10,6 +10,7 @@ import Icon from "@material-tailwind/react/Icon";
 const Doc = () => {
 
     const [session] = useSession();
+    const [snapshot, loadingSnapshot] = useDocumentOnce(db.collection('userDocs').doc(session.user.email).collection('docs').doc(id));
     const router = useRouter();
 
     if(!session) return <Login />;
