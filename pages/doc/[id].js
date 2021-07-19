@@ -31,13 +31,13 @@ const Doc = () => {
 
                 <div className="flex-grow px-2">
                     <h2>{snapshot?.data()?.fileName}</h2>
-                    <div>
-                        <p>File</p>
-                        <p>Edit</p>
-                        <p>View</p>
-                        <p>Insert</p>
-                        <p>Format</p>
-                        <p>Tools</p>
+                    <div className="flex items-center text-sm space-x-1 -ml-1 h-8 text-gray-600">
+                        <p className="option">File</p>
+                        <p className="option">Edit</p>
+                        <p className="option">View</p>
+                        <p className="option">Insert</p>
+                        <p className="option">Format</p>
+                        <p className="option">Tools</p>
                     </div>
                 </div>
             </header>
