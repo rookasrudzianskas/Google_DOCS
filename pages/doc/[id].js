@@ -40,6 +40,12 @@ const Doc = () => {
                         <p className="option">Tools</p>
                     </div>
                 </div>
+
+                <Button>
+                    {/*color="lightblue" buttonType="filled" size="regular" className="" rounded={false} block={false} iconOnly={false} ripple="light"*/}
+                    <Icon name="people" size="md" />SHARE
+                </Button>
+                <img className="rounded-full cursor-pointer h-10 w-10 ml-5" src={session.user.image} alt=""/>
             </header>
         </div>
     );
