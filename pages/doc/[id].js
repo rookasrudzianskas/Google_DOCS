@@ -6,6 +6,7 @@ import {getSession, signOut, useSession} from "next-auth/client";
 import Login from "../../components/Login";
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
+import TextEditor from "../../components/TextEditor";
 
 const Doc = () => {
 
@@ -47,8 +48,20 @@ const Doc = () => {
                 </Button>
                 <img className="rounded-full cursor-pointer h-10 w-10 ml-5" src={session.user.image} alt=""/>
             </header>
+
+            <TextEditor />
         </div>
     );
 };
 
 export default Doc;
+
+export async function getServerSideProps(context) {
+    const session = getSession(context);
+
+    return {
+        props: {
+            session,
+        },
+    };
+}
