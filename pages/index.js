@@ -30,7 +30,7 @@ export default function Home() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
 
-        setInput(input);
+        setInput("");
         setShowModal(false);
     }
 
