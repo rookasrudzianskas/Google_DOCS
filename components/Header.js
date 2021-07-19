@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
-import {useSession} from "next-auth/client";
+import {signOut, useSession} from "next-auth/client";
 
 
 const Header = () => {
@@ -24,7 +24,7 @@ const Header = () => {
             <Icon name="apps" size="3xl" color="gray" />
             </Button>
 
-            <img loading="lazy" className="cursor-pointer h-12 w-12 rounded-full ml-2" src={session?.user?.image} alt=""/>
+            <img onClick={signOut} loading="lazy" className="cursor-pointer h-12 w-12 rounded-full ml-2" src={session?.user?.image} alt=""/>
 
         </header>
     );

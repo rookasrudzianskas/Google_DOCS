@@ -5,6 +5,10 @@ import Icon from "@material-tailwind/react/Icon";
 import Image from "next/Image";
 import {getSession, useSession} from "next-auth/client";
 import Login from "../components/Login";
+import Modal from "@material-tailwind/react/Modal";
+import ModalBody from "@material-tailwind/react/ModalBody";
+import ModalFooter from "@material-tailwind/react/ModalFooter";
+
 
 export default function Home() {
 
